@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="kk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SoundRent — жабдықтарды жалға алу</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="top">
+    <a class="brand" href="#">♪ SoundRent</a>
+    <nav><a href="#catalog">Каталог</a><a href="#booking">Тапсырыс</a><a href="#contacts">Байланыс</a></nav>
+  </header>
+  <main>
+    <section class="hero">
+      <div>
+        <p class="eyebrow">Іс-шараларға арналған жабдықтар</p>
+        <h1>Дыбыс пен жарық жабдықтарын <span>оңай жалға алыңыз</span></h1>
+        <p class="sub">Концерт, мереке, конференция және басқа іс-шараларға қажетті құрылғыларды таңдаңыз.</p>
+        <a class="button" href="#booking">Тапсырыс беру</a>
+      </div>
+      <div class="hero-card"><div class="speaker">♫</div><b>Сапалы дыбыс — сәтті іс-шараның негізі</b><small>Микрофон • Колонка • Микшер • Жарық</small></div>
+    </section>
+
+    <section id="catalog" class="section">
+      <div class="section-title"><div><p class="eyebrow">Біздің ұсыныстар</p><h2>Жабдықтар каталогы</h2></div><span class="badge">SoundRent MVP</span></div>
+      <div class="cards">
+        <article class="card"><div class="icon">🎤</div><h3>Микрофон</h3><p>Сөйлеу және вокалға арналған</p><strong>3 000 ₸ <small>/ күн</small></strong></article>
+        <article class="card"><div class="icon">🔊</div><h3>Дыбыс колонкасы</h3><p>Іс-шараларға арналған акустика</p><strong>8 000 ₸ <small>/ күн</small></strong></article>
+        <article class="card"><div class="icon">🎚️</div><h3>Дыбыс микшері</h3><p>Дыбысты басқару құрылғысы</p><strong>6 000 ₸ <small>/ күн</small></strong></article>
+        <article class="card"><div class="icon">💡</div><h3>Жарық құрылғысы</h3><p>Сахнаны жарықтандыруға арналған</p><strong>4 000 ₸ <small>/ күн</small></strong></article>
+      </div>
+    </section>
+
+    <section id="booking" class="section booking">
+      <div>
+        <p class="eyebrow">Онлайн тапсырыс</p>
+        <h2>Жабдықты жалға алу</h2>
+        <p class="sub">Жабдықты, күн санын және санын таңдаңыз. Жүйе жалға алу құнын автоматты түрде есептейді. Содан кейін тапсырыс мәліметтерін жіберіңіз.</p>
+        <div class="info"><b>Қалай жұмыс істейді?</b><ol><li>Жабдықты таңдаңыз.</li><li>Күн санын және санын енгізіңіз.</li><li>Құнын есептеп, байланыс мәліметтерін толтырыңыз.</li></ol></div>
+      </div>
+      <form id="rentalForm" novalidate>
+        <h3>1. Жалға алу мәліметтері</h3>
+        <label for="item">Жабдық түрі</label>
+        <select id="item" required>
+          <option value="3000">Микрофон — 3 000 ₸ / күн</option>
+          <option value="8000">Дыбыс колонкасы — 8 000 ₸ / күн</option>
+          <option value="6000">Дыбыс микшері — 6 000 ₸ / күн</option>
+          <option value="4000">Жарық құрылғысы — 4 000 ₸ / күн</option>
+        </select>
+        <div class="two">
+          <div><label for="days">Күн саны</label><input id="days" type="number" min="1" max="365" placeholder="Мысалы: 3" required></div>
+          <div><label for="quantity">Жабдық саны</label><input id="quantity" type="number" min="1" max="50" placeholder="Мысалы: 2" required></div>
+        </div>
+        <button class="button full secondary" id="calculate" type="button">Құнын есептеу</button>
+        <div id="message" class="message" role="alert"></div>
+        <div class="result" aria-live="polite"><span>Жалпы құны</span><strong id="total">0 ₸</strong><small id="details">Мәліметтерді енгізіп, есептеңіз.</small></div>
+        <div class="form-divider"></div>
+        <h3>2. Байланыс мәліметтері</h3>
+        <label for="customer">Аты-жөніңіз</label>
+        <input id="customer" type="text" placeholder="Аты-жөніңізді енгізіңіз" required>
+        <label for="phone">Телефон нөмірі</label>
+        <input id="phone" type="tel" placeholder="+7 7XX XXX XX XX" required>
+        <label for="date">Жалға алу басталатын күн</label>
+        <input id="date" type="date" required>
+        <label for="comment">Қосымша ақпарат (міндетті емес)</label>
+        <textarea id="comment" rows="3" placeholder="Іс-шара туралы немесе қосымша тілегіңіз"></textarea>
+        <button class="button full" type="submit">Тапсырысты жіберу</button>
+        <p class="hint">Бұл оқу жобасының демо-нұсқасы. Тапсырыс осы бетте көрсетіледі, серверге жіберілмейді.</p>
+        <div id="success" class="success" hidden aria-live="polite"></div>
+      </form>
+    </section>
+    <section id="contacts" class="section contacts">
+      <p class="eyebrow">Бізбен байланыс</p><h2>SoundRent</h2>
+      <p>Іс-шараларға арналған дыбыс және жарық жабдықтарын жалға беру сервисі.</p>
+      <a href="#booking" class="text-link">Тапсырыс беру бөліміне өту →</a>
+    </section>
+  </main>
+  <footer>© 2026 SoundRent | Оқу мақсатындағы MVP веб-қосымшасы</footer>
+  <script src="app.js"></script>
+</body>
+</html>
